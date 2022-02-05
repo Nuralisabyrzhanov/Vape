@@ -48,18 +48,18 @@
                         </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                           <a class="nav-item nav-link" href="index.html">Home</a>
-                           <a class="nav-item nav-link" href="collection.html">Collection</a>
-                           <a class="nav-item nav-link" href="shoes.html">Shoes</a>
-                           <a class="nav-item nav-link" href="racing boots.html">Racing Boots</a>
-                           <a class="nav-item nav-link" href="contact.html">Contact</a>
+                           <a class="nav-item nav-link" href="{% url 'shop:product_list' %}">Home</a>
+                           <a class="nav-item nav-link" href="{% url 'shop:contact' %}">Contact</a>
 							<div class="nav-item nav-link">
 							{% with total_items=cart|length %}
         {% if cart|length > 0 %}
             Your cart:
+
             <a href="{% url "cart:cart_detail" %}">
+								<div class="delivery_text">
                 {{ total_items }} item{{ total_items|pluralize }},
                 ${{ cart.get_total_price }}
+								</div>
             </a>
         {% else %}
             Your cart is empty
@@ -151,7 +151,6 @@
     	</div>
     </div>
 	<!-- section footer end -->
-	<div class="copyright">2019 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></div>
 
 
       <!-- Javascript files-->

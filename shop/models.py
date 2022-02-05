@@ -16,6 +16,13 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_list_by_category',
                        args=[self.slug])
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    message = models.TextField()
+    def __str__(self):
+        return f"{self.name} {self.phone}"
 
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products')
